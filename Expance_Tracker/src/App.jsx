@@ -29,7 +29,7 @@ padding : 2rem
 
 function App() {
 
-  const [transaction,setTransaction] = useState([
+  const [transaction] = useState([
    {id : 1 , text : "Food" , Amount : -300},
    {id : 2 , text : "salary" , Amount : 5300},
    {id : 3 , text : "books" , Amount : -700},
