@@ -3,7 +3,7 @@ import {Box, Typography,styled } from "@mui/material"
 import Balance from './components/Balance'
 import ExpanceCard from './components/ExpancCard'
 import NewTransaction from './components/NewTransation'
-import Transaction from './components/Transaction'
+import Transaction from './components/Transactions'
 import { useState } from 'react'
 
 
@@ -21,7 +21,7 @@ width : 800px;
 border-radius : 30px;
 
 & > div{
-height : 70vh;
+height : 150vh;
 width : 50%;
 padding : 2rem
 }
@@ -29,23 +29,20 @@ padding : 2rem
 
 function App() {
 
-  const [transaction,setTransaction] = useState([
-   {id : 1 , text : "Food" , Amount : -300},
-   {id : 2 , text : "salary" , Amount : 5300},
-   {id : 3 , text : "books" , Amount : -700},
-   {id : 4 , text : "Bills" , Amount : -1300},
+  const [transactions ,setTransactions] = useState([
+    
   ])
   return (
     <Box className='App'>
      <Header>Expance Tracker</Header>
      <Container>
       <Box>
-        <Balance/>
-        <ExpanceCard/>
-        <NewTransaction/>
+        <Balance transactions = {transactions}/>
+        <ExpanceCard transactions = {transactions}/>
+        <NewTransaction setTransactions = {setTransactions}/>
       </Box>
       <Box>
-        <Transaction transaction = {transaction}/>
+        <Transaction transactions = {transactions} setTransactions = {setTransactions}/>
       </Box>
      </Container>
     </Box>

@@ -1,25 +1,31 @@
+/* eslint-disable react/prop-types */
+import { ListItem ,ListItemText , styled } from "@mui/material";
+import { ListItemIcon } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-import { Typography, List , Divider, Box } from "@mui/material"
-import Transactions from "./Transactions";
+
+const Detail = styled(ListItem)`
+margin-top : 2rem;
+border-radius : 1rem;
+`
 
 // eslint-disable-next-line react/prop-types
-const Transaction = ({transaction})=>{
-    return(
-     <Box>
-        <Typography variant="h4">Transition History</Typography>
-        <Divider/>
-        <List>
-            {
-                // eslint-disable-next-line no-unused-vars, react/prop-types
-                transaction.map(transaction =>(
-                    // eslint-disable-next-line react/jsx-key
-                   <Transactions transaction ={transaction}/>
-                ))
-            }
-        </List>
-     </Box>
-    )
+function Transaction ({transaction , setTransactions ,transactions}){
+
+const color = transaction.amount > 0 ? "#2e8b57": "#dc143c"
+const deletTransaction = (id) =>{
+     setTransactions(transactions.filter(transaction => transaction.id !== id))
 }
 
+    return(
+       <Detail style={{background :`${color}`, color: "#fff" }}>
+        <ListItemIcon>
+            <DeleteIcon onClick ={()=>deletTransaction(transaction.id)}/>
+        </ListItemIcon>
+      <ListItemText> {transaction.text}</ListItemText>
+      <ListItemText> {transaction.amount}</ListItemText>
+       </Detail>
+    )
+}
 
 export default Transaction;

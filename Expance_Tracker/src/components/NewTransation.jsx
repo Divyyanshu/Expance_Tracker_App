@@ -1,23 +1,38 @@
 import { Typography, TextField , Button, styled } from "@mui/material";
+import { useState } from "react";
+
 
 const Container = styled(Typography)`
 display : flex;
 flex-direction : column;
-& > h4 ,& >div , &> button{
+& > h5 ,& >div , &> button{
    margin-top : 2rem;
 }
 `
 
-function NewTransaction() {
+// eslint-disable-next-line react/prop-types
+function NewTransaction({setTransactions}) {
+
+const [text,setText] = useState("");
+const [amount,setamount] = useState(0);
+
+function addTransation(){
+    const transaction = {
+        id : Math.floor(Math.random()*1000000),
+        text : text,
+        amount : +amount,
+    }
+    // eslint-disable-next-line no-undef
+    setTransactions(prevState => [transaction , ...prevState])
+}
+
     return (
         <Container>
-            <Typography variant="h4">New Transation</Typography>
-            <TextField label="Enter Expance" variant="outlined" />
-            <TextField label="Enter Amount" variant="outlined" />
-            <Button variant="contained">Add Transitions</Button>
+            <Typography variant="h5">NEW TRANSACTION</Typography>
+            <TextField label="Enter Expance" onChange={(e)=>setText(e.target.value)} />
+            <TextField label="Enter Amount" onChange={(e)=>setamount(e.target.value)}/>
+            <Button variant="contained" onClick={()=> addTransation()}>Add Transitions</Button>
         </Container>
-
-
     )
 }
 

@@ -5,10 +5,16 @@ const BalancedText = styled(Typography)`
   margin-bottom : 1rem;
 `
 
-function Balance() {
+// eslint-disable-next-line react/prop-types
+function Balance({transactions}) {
+
+// eslint-disable-next-line react/prop-types
+const amount = transactions.map(transaction => transaction.amount);
+const total = amount.reduce((amount,item)=>(amount += item),0).toFixed(2)
+
     return (
         <Box>
-            <BalancedText>Balanced : 100 </BalancedText>
+            <BalancedText>Balanced : ₹{total} </BalancedText>
         </Box>
     )
 }
