@@ -9,8 +9,13 @@ import { useState } from 'react'
 
 const Header = styled(Typography)`
 font-size : 3rem;
+text-align :center;
 text-transform : uppercase;
-color : #454B1B;
+background-color : #212121;
+color : #fff;
+ @media (max-width: 768px) {
+    padding: 10px;
+  }
 `
 const Container = styled(Box)`
 display : flex;
@@ -21,7 +26,7 @@ width : 800px;
 border-radius : 30px;
 
 & > div{
-height : 150vh;
+height : 65vh;
 width : 50%;
 padding : 2rem
 }
@@ -29,23 +34,24 @@ padding : 2rem
 
 function App() {
 
-  const [transactions ,setTransactions] = useState([
-    
-  ])
+  const [transactions ,setTransactions] = useState([])
   return (
-    <Box className='App'>
+
+    <>
      <Header>Expance Tracker</Header>
-     <Container>
-      <Box>
-        <Balance transactions = {transactions}/>
-        <ExpanceCard transactions = {transactions}/>
-        <NewTransaction setTransactions = {setTransactions}/>
-      </Box>
-      <Box>
-        <Transaction transactions = {transactions} setTransactions = {setTransactions}/>
-      </Box>
-     </Container>
-    </Box>
+    <Container>
+     <Box>
+       <Balance transactions = {transactions}/>
+       <ExpanceCard transactions = {transactions}/>
+       <NewTransaction setTransactions = {setTransactions}/>
+     </Box>
+     <Box>
+       <Transaction transactions = {transactions} setTransactions = {setTransactions}/>
+     </Box>
+    </Container>
+    </>
+   
+    
   )
 }
 

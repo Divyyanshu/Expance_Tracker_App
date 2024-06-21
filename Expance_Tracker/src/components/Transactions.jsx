@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
-import { Typography, Box ,Divider ,List} from "@mui/material"
+import { Typography, Box ,Divider ,List,styled} from "@mui/material"
 import Transaction from "./Transaction"
+const TransBox = styled(Typography)`
+text-align :center;
+`
 
 // eslint-disable-next-line react/prop-types
 function Transactions({transactions ,setTransactions}){
     return(
-        <Box>
+        <TransBox>
             <Typography variant="h5" color="initial"> Transaction History</Typography>
             <Divider/>
             <List>
@@ -17,7 +20,7 @@ function Transactions({transactions ,setTransactions}){
                     ))
                 }
             </List>
-        </Box>
+        </TransBox>
     )
 }
 

@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Container = styled(Typography)`
 display : flex;
+text-align : center;
 flex-direction : column;
 & > h5 ,& >div , &> button{
    margin-top : 2rem;

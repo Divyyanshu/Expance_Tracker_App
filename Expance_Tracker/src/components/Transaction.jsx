@@ -6,6 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const Detail = styled(ListItem)`
 margin-top : 2rem;
+text-align :center;
 border-radius : 1rem;
 `
 
@@ -18,7 +19,7 @@ const deletTransaction = (id) =>{
 }
 
     return(
-       <Detail style={{background :`${color}`, color: "#fff" }}>
+       <Detail style={{background :`${color}`, color: "#fff"}}>
         <ListItemIcon>
             <DeleteIcon onClick ={()=>deletTransaction(transaction.id)}/>
         </ListItemIcon>

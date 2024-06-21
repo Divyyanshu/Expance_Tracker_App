@@ -2,6 +2,7 @@ import { Box, Typography, styled } from "@mui/material"
 
 const BalancedText = styled(Typography)`
   font-size : 2rem;
+  text-align :center;
   margin-bottom : 1rem;
 `
 
