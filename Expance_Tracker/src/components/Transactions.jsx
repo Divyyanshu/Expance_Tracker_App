@@ -1,26 +1,23 @@
-/* eslint-disable no-unused-vars */
-import { Typography, Box ,Divider ,List,styled} from "@mui/material"
-import Transaction from "./Transaction"
-const TransBox = styled(Typography)`
-text-align :center;
-`
 
-// eslint-disable-next-line react/prop-types
-function Transactions({transactions ,setTransactions}){
-    return(
-        <TransBox>
+import { Typography, Box, Divider, List } from "@mui/material"
+import Transaction from "./Transaction"
+
+
+function Transactions({ transactions, setTransactions, setEdit_id, setEditFlag, }) {
+    return (
+        <Box>
             <Typography variant="h5" color="initial"> Transaction History</Typography>
-            <Divider/>
+            <Divider />
             <List>
                 {
-                    // eslint-disable-next-line react/prop-types
-                    transactions.map(transaction =>(
-                    // eslint-disable-next-line react/jsx-key
-                    <Transaction  transaction={transaction} setTransactions={setTransactions} transactions={transactions}/>
+
+                    transactions.map(transaction => (
+
+                        <Transaction transaction={transaction} setTransactions={setTransactions} transactions={transactions} setEdit_id={setEdit_id} setEditFlag={setEditFlag} />
                     ))
                 }
             </List>
-        </TransBox>
+        </Box>
     )
 }
 

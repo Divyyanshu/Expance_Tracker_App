@@ -4,15 +4,8 @@
   padding: 2rem;
   text-align: center;
 } */
-/* .App{
+.App{
   height: 800vh;
-  background-color: rgb(209, 209, 209);
+  background-color: rgb(240, 240, 239);
   text-align: center;
-  @media (max-width: 768px) {
-    .AppContainer {
-      padding: 10px;}
-}} */
-
-body{
-  background-color : #212120;
 }

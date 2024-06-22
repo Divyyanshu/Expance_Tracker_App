@@ -2,14 +2,11 @@ import { Box, Typography, styled } from "@mui/material"
 
 const BalancedText = styled(Typography)`
   font-size : 2rem;
-  text-align :center;
   margin-bottom : 1rem;
 `
 
-// eslint-disable-next-line react/prop-types
-function Balance({transactions}) {
 
-// eslint-disable-next-line react/prop-types
+function Balance({transactions}) {
 const amount = transactions.map(transaction => transaction.amount);
 const total = amount.reduce((amount,item)=>(amount += item),0).toFixed(2)
 

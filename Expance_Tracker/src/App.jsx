@@ -1,7 +1,7 @@
 import './App.css'
-import {Box, Typography,styled } from "@mui/material"
+import { Box, Typography, styled } from "@mui/material"
 import Balance from './components/Balance'
-import ExpanceCard from './components/ExpancCard'
+import ExpenseCard from './components/ExpenseCard'
 import NewTransaction from './components/NewTransation'
 import Transaction from './components/Transactions'
 import { useState } from 'react'
@@ -9,13 +9,8 @@ import { useState } from 'react'
 
 const Header = styled(Typography)`
 font-size : 3rem;
-text-align :center;
 text-transform : uppercase;
-background-color : #212121;
-color : #fff;
- @media (max-width: 768px) {
-    padding: 10px;
-  }
+color : #454B1B;
 `
 const Container = styled(Box)`
 display : flex;
@@ -26,7 +21,7 @@ width : 800px;
 border-radius : 30px;
 
 & > div{
-height : 65vh;
+height : 150vh;
 width : 50%;
 padding : 2rem
 }
@@ -34,24 +29,27 @@ padding : 2rem
 
 function App() {
 
-  const [transactions ,setTransactions] = useState([])
+  const [transactions, setTransactions] = useState([
+  ])
+  const [editFlag, setEditFlag] = useState(false)
+  const [edit_id, setEdit_id] = useState(0);
   return (
-
     <>
-     <Header>Expance Tracker</Header>
-    <Container>
-     <Box>
-       <Balance transactions = {transactions}/>
-       <ExpanceCard transactions = {transactions}/>
-       <NewTransaction setTransactions = {setTransactions}/>
-     </Box>
-     <Box>
-       <Transaction transactions = {transactions} setTransactions = {setTransactions}/>
-     </Box>
-    </Container>
+      <Box className='App'>
+        <Header>Expense Tracker</Header>
+        <Container>
+          <Box>
+            <Balance transactions={transactions} />
+            <ExpenseCard transactions={transactions} />
+            <NewTransaction transactions={transactions} setTransactions={setTransactions} Edit_id={edit_id} setEdit_id={setEdit_id} setEditFlag={setEditFlag}  editFlag={editFlag}/>
+          </Box>
+          <Box>
+            <Transaction transactions={transactions} setTransactions={setTransactions}  setEdit_id={setEdit_id} setEditFlag={setEditFlag} />
+          </Box>
+        </Container>
+      </Box>
     </>
-   
-    
+
   )
 }
 
