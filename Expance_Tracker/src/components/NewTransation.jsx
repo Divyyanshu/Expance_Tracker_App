@@ -10,7 +10,6 @@ flex-direction : column;
    margin-top : 2rem;
 }
 `
-
 // eslint-disable-next-line react/prop-types
 function NewTransaction({setTransactions}) {
 
@@ -23,7 +22,6 @@ function addTransation(){
         text : text,
         amount : +amount,
     }
-    // eslint-disable-next-line no-undef
     setTransactions(prevState => [transaction , ...prevState])
 }
 
@@ -36,5 +34,4 @@ function addTransation(){
         </Container>
     )
 }
-
 export default NewTransaction;
